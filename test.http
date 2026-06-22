@@ -1,0 +1,24 @@
+POST http://localhost:8080/api/idols
+Content-Type: application/json
+
+{
+  "name": "카리나",
+  "groupName": "에스파",
+  "mbti": "ISTP",
+  "fancamUrl": "https://youtu.be/example",
+  "introPoint": "도도한 고양이상"
+}
+
+###
+
+POST http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "name": "강아지상",
+  "category": "얼굴상"
+}
+
+###
+
+POST http://localhost:8080/api/idols/1/tags/1
