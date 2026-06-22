@@ -46,6 +46,16 @@ public class IdolController {
         return idolTagRepository.save(idolTag);
     }
 
+    @DeleteMapping("/api/idols/{idolId}/tags/{tagId}")
+    public void removeTagFromIdol(@PathVariable Long idolId, @PathVariable Long tagId) {
+        List<IdolTag> links = idolTagRepository.findByIdolId(idolId);
+        for (IdolTag link : links) {
+            if (link.getTag().getId().equals(tagId)) {
+                idolTagRepository.delete(link);
+            }
+        }
+    }
+
     @DeleteMapping("/api/idols/{idolId}")
     public void deleteIdol(@PathVariable Long idolId) {
         List<IdolTag> links = idolTagRepository.findByIdolId(idolId);
