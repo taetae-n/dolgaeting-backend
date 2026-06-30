@@ -24,4 +24,14 @@ public class GameSessionController {
     public List<GameSession> getAllSessions() {
         return gameSessionRepository.findAll();
     }
+
+    @DeleteMapping("/api/sessions/{id}")
+    public void deleteSession(@PathVariable Long id) {
+        gameSessionRepository.deleteById(id);
+    }
+
+    @DeleteMapping("/api/sessions")
+    public void deleteAllSessions() {
+        gameSessionRepository.deleteAll();
+    }
 }
